@@ -1,13 +1,14 @@
 <template>
   <div v-if="candles.length">
     <h3>Market graph</h3>
-    <chart :options="dynOptions" auto-resize ref="chart" class="full-width" :class="dynStyle"></chart>
+    <chart v-if='dynOptions' :options="dynOptions" auto-resize ref="chart" class="full-width" :class="dynStyle"></chart>
   </div>
 </template>
 
 <script>
   import _ from "lodash";
   import ECharts from 'vue-echarts'
+  import 'echarts/lib/component/polar'
 
   const userIndicators = (window.CONFIG.userChartConfig && window.CONFIG.userChartConfig.indicators) || [];
   const userPatterns = (window.CONFIG.userChartConfig && window.CONFIG.userChartConfig.patterns) || [];

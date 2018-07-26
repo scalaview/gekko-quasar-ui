@@ -39,7 +39,7 @@ import DateFilters from '../../mixins/DateFilterMixin'
 import _ from 'lodash'
 
 export default {
-  props: ['roundtrips', 'currency', 'asset'],
+  props: ['roundtrips'],
   mixins:[DateFilters],
   data: function() {
     return {}
@@ -90,6 +90,9 @@ export default {
           sortable: false
         }
       ]
+    },
+    currency: function() {
+      return "USDT"
     }
   },
   methods: {

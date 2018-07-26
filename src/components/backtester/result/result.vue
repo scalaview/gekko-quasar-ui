@@ -4,7 +4,7 @@
       <h3>Backtest result</h3>
     </div>
     <div>
-      <result-summary :report="result.report"/>
+      <result-summary :report="result.performanceReport"/>
     </div>
     <div>
       <echart :candles="candles" :trades="trades" :indicators="indicators"></echart>
@@ -26,7 +26,7 @@
       </excel-json>
     </div>
     <div>
-      <roundtrip-table :roundtrips="result.roundtrips" :asset="result.report.asset" :currency="result.report.currency"/>
+      <roundtrip-table :roundtrips="result.roundtrips"/>
     </div>
   </div>
 </template>
@@ -45,7 +45,7 @@
     },
     computed: {
       candles: function () {
-        return this.result.candles || []
+        return this.result.stratCandles || []
       },
       trades: function () {
         return this.result.trades || []
